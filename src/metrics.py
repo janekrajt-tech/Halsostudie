@@ -44,7 +44,8 @@ def ci_systolic_bp(df):
 
    
     lo, hi = mean - half_width, mean + half_width
-    return lo, hi
+    mean_normal = (lo + hi) / 2
+    return lo, hi, mean_normal
 def ci_systolic_bp_bootstrap(df, B=5000, confidence=0.95):
     data = df["systolic_bp"].dropna()
     n = len(data)
