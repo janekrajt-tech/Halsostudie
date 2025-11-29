@@ -47,3 +47,28 @@ def bar_smokers(df):
     ax.grid(axis="y")
     plt.tight_layout()
     plt.show()
+def disease_gender(df):
+    male_count = df[(df["sex"] == "M") & (df["disease"] == 1)].shape[0]
+    female_count = df[(df["sex"] == "F") & (df["disease"] == 1)].shape[0]
+    
+    labels = ["Male", "Female"]
+    counts = [male_count, female_count]
+
+    fig, ax = plt.subplots(figsize=(6, 4))
+    ax.bar(labels, counts, color= ["blue", "purple"])
+
+    ax.set_title("Sjukdomsförekomst per kön")
+    ax.set_xlabel("Kön")
+    ax.set_ylabel("Antal med sjukdom")
+    ax.grid(axis="y", linestyle= "--", alpha= 0.5)
+    plt.tight_layout()
+    plt.show()
+
+def scatter_blodtryck_age(df):
+    plt.scatter(df["age"], df["systolic_bp"])
+    plt.xlabel("Ålder")
+    plt.ylabel("Systolisk blodtryck")
+    plt.title("Scatter - Systolisk Blodtryck vs ålder")
+    plt.grid(True, linestyle="--", alpha = 0.5)
+    plt.tight_layout()
+    plt.show()
